@@ -7,6 +7,11 @@
         <Action name="web-search"/>
         <Action name="open-browser"/>
         <Separator/>
+        <Menu name="multi-terminal"><text>Multi Terminal</text>
+            <Action name="multi-terminal-hor" group="multi-terminal"/>
+            <Action name="multi-terminal-ver" group="multi-terminal"/>
+        </Menu>
+        <Separator/>
         <Action name="set-encoding"/>
         <Separator/>
         <Action name="edit_find"/>

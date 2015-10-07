@@ -85,6 +85,7 @@ set(konsoleprivate_SRCS ${sessionadaptors_SRCS}
                         KeyBindingEditor.cpp
                         KeyboardTranslator.cpp
                         KeyboardTranslatorManager.cpp
+                        MultiTerminalDisplayManager.cpp
                         ProcessInfo.cpp
                         Profile.cpp
                         ProfileList.cpp
