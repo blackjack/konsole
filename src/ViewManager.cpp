@@ -178,7 +178,7 @@ void ViewManager::setupActions()
     // Menu item for the vertical split of the multi terminal
     QAction* multiTerminalVerAction = new QAction(QIcon::fromTheme(QStringLiteral("view-split-left-right")), i18nc("@action:inmenu", "Split Pane &Vertically"), this);
     multiTerminalVerAction->setEnabled(true);
-    multiTerminalVerAction->setShortcut(QKeySequence(Qt::META + Qt::Key_D));
+    collection->setDefaultShortcut(multiTerminalVerAction,QKeySequence(Qt::META + Qt::Key_D));
     collection->addAction("multi-terminal-ver", multiTerminalVerAction);
     _viewSplitter->addAction(multiTerminalVerAction);
     connect(multiTerminalVerAction, SIGNAL(triggered()), this, SLOT(multiTerminalVertical()));
@@ -187,7 +187,7 @@ void ViewManager::setupActions()
     // Menu item for the horizontal split of the multi terminal
     QAction* multiTerminalHorAction = new QAction(QIcon::fromTheme(QStringLiteral("view-split-top-bottom")), i18nc("@action:inmenu", "Split Pane &Horizontally"), this);
     multiTerminalHorAction->setEnabled(true);
-    multiTerminalHorAction->setShortcut(QKeySequence(Qt::META + Qt::CTRL + Qt::Key_D));
+    collection->setDefaultShortcut(multiTerminalHorAction,QKeySequence(Qt::META + Qt::CTRL + Qt::Key_D));
     collection->addAction("multi-terminal-hor", multiTerminalHorAction);
     _viewSplitter->addAction(multiTerminalHorAction);
     connect(multiTerminalHorAction, SIGNAL(triggered()), this, SLOT(multiTerminalHorizontal()));
@@ -195,7 +195,7 @@ void ViewManager::setupActions()
 
     // Menu item for closing a multi terminal
     QAction* closeMultiTerminalAction = new QAction(QIcon::fromTheme(QStringLiteral("view-close")), i18nc("@action:inmenu", "&Close"), this);
-    closeMultiTerminalAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_W));
+    collection->setDefaultShortcut(closeMultiTerminalAction,QKeySequence(Qt::CTRL + Qt::Key_W));
     collection->addAction("multi-terminal-close", closeMultiTerminalAction);
     _viewSplitter->addAction(closeMultiTerminalAction);
     connect(closeMultiTerminalAction, SIGNAL(triggered()), this, SLOT(multiTerminalClose()));
@@ -206,28 +206,28 @@ void ViewManager::setupActions()
     goToLeftMtdAction->setText(i18n("&Move to closest multi-terminal on the left"));
     // TODO: icon?
     goToLeftMtdAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-rename")));
-    goToLeftMtdAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_Left));
+    collection->setDefaultShortcut(goToLeftMtdAction,QKeySequence(Qt::ALT + Qt::Key_Left));
     // Shortcut to move to the MTD above
     QAction* goToTopMtdAction = 0;
     goToTopMtdAction = collection->addAction("to-top-mtd", this, SLOT(moveToTopMtd()));
     goToTopMtdAction->setText(i18n("&Move to closest multi-terminal above"));
     // TODO: icon?
     goToTopMtdAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-rename")));
-    goToTopMtdAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_Up));
+    collection->setDefaultShortcut(goToTopMtdAction,QKeySequence(Qt::ALT + Qt::Key_Up));
     // Shortcut to move to the MTD to the right
     QAction* goToRightMtdAction = 0;
     goToRightMtdAction = collection->addAction("to-right-mtd", this, SLOT(moveToRightMtd()));
     goToRightMtdAction->setText(i18n("&Move to closest multi-terminal on the right"));
     // TODO: icon?
     goToRightMtdAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-rename")));
-    goToRightMtdAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_Right));
+    collection->setDefaultShortcut(goToRightMtdAction,QKeySequence(Qt::ALT + Qt::Key_Right));
     // Shortcut to move to the MTD below
     QAction* goToBottomMtdAction = 0;
     goToBottomMtdAction = collection->addAction("to-bottom-mtd", this, SLOT(moveToBottomMtd()));
     goToBottomMtdAction->setText(i18n("&Move to closest multi-terminal below"));
     // TODO: icon?
     goToBottomMtdAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-rename")));
-    goToBottomMtdAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_Down));
+    collection->setDefaultShortcut(goToBottomMtdAction,QKeySequence(Qt::ALT + Qt::Key_Down));
 
     // keyboard shortcut only actions
     collection->setDefaultShortcut(nextViewAction, Qt::SHIFT + Qt::Key_Right);
